@@ -77,6 +77,30 @@ int main() {
                 saveData(plist, curcount);
             }
         }
+	        // search name
+        else if(menu == 6) {
+            if(count == 0)
+                printf("=> 데이터 없음!\n");
+            else {
+                searchName(plist, curcount);
+            }
+        }
+        // search price
+        else if(menu == 7) {
+            if(count == 0)
+                printf("=> 데이터 없음!\n");
+            else {
+                searchPrice(plist, curcount);
+            }
+        }
+        // search star
+        else if(menu == 8) {
+            if(count == 0)
+                printf("=> 데이터 없음!\n");
+            else {
+                searchStar(plist, curcount);
+            }
+        }
     }
     printf("종료됨!\n");
     return 0;
