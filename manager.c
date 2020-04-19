@@ -22,3 +22,21 @@ int selectDataNo(Product *s, int count) {
 
     return no;
 }
+// 이름으로 제품을 검색할 수 있는 함수
+void searchName(Product *s, int count) {
+    int scount = 0;
+    char search[20];
+    printf("원하는 이름은? ");
+    scanf("%s", search);
+
+    printf("\n      Name   weight price st_price    star \n");
+    printf("=================================================\n");
+    for(int i =0; i < count; i++) {
+        if(s[i].weight == -1) continue;
+        if(strstr(s[i].item, search)) {
+            readProd(s[i]);
+            scount++;
+        }
+    }
+    if(scount == 0) printf("==> 검색결과 없음!!!\n");
+}
