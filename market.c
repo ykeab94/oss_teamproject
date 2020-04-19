@@ -19,10 +19,9 @@ int selectMenu() {
     	printf("0. 종료\n");
     	printf("\n=> 원하는 메뉴는? ");
     	scanf("%d", &menu);
-	// 아직 수정전
-	if() break;
+	if(0<=menu && menu<9) return menu;
+	else printf("Error: incorrect menu number.\n");
     }
-    return menu;
 }
 
 int main() {
