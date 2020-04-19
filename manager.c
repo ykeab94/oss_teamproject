@@ -78,3 +78,8 @@ void searchStar(Product *s, int count) {
     if(scount == 0) printf("==> 검색결과 없음!!!\n");
 }
 
+// DEBUG 모드 시 정보 입력
+void print_debug() {
+    printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
+}
+
