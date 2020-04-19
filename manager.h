@@ -5,3 +5,5 @@ int selectDataNo(Product *s, int count)
 void searchName(Product *s, int count);;
 // 가격으로 제품을 검색할 수 있는 함수
 void searchPrice(Product *s, int count);
+// 별점수로 제품을 검색할 수 있는 함수
+void searchStar(Product *s, int count);

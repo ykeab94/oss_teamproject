@@ -59,3 +59,22 @@ void searchPrice(Product *s, int count) {
     }
     if(scount == 0) printf("==> 검색결과 없음!!!\n");
 }
+// 별점수로 제품을 검색할 수 있는 함수
+void searchStar(Product *s, int count) {
+    int scount = 0;
+    int search;
+    printf("원하는 별점은? ");
+    scanf("%d", &search);
+
+    printf("\n      Name   weight price st_price    star \n");
+    printf("=================================================\n");
+    for(int i =0; i < count; i++) {
+        if(s[i].star == -1) continue;
+        if(s[i].star == search) {
+            readProd(s[i]);
+            scount++;
+        }
+    }
+    if(scount == 0) printf("==> 검색결과 없음!!!\n");
+}
+
