@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include "manager.h"
 #include <string.h>
-#define DEBUG
 // 다중 데이터 처리 때 사용
 // update와 delete 할 때, 번호을 물어보는 함수(updateProd, deleteProd, searchProd함수에서 사용)
 int selectDataNo(Product *s, int count) {
