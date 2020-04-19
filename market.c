@@ -30,6 +30,9 @@ int main() {
     int count = 0, menu;
     count = loadData(plist);
     curcount = count;
+    #ifdef DEBUG
+	printf("--------DEBUG mode----------\n");
+    #endif
     while(1) {
         menu = selectMenu();
         if(menu == 0) break;
