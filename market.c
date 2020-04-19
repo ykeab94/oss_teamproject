@@ -32,7 +32,7 @@ int main() {
     curcount = count;
     #ifdef DEBUG
 	printf("--------DEBUG mode----------\n");
-	print_debug();
+	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
     #endif
     while(1) {
         menu = selectMenu();

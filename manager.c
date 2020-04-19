@@ -1,14 +1,14 @@
-// 21500706 지성민
+//// 21500706 지성민
 #include "product.h"
 #include <stdio.h>
 #include "manager.h"
 #include <string.h>
-
+#define DEBUG
 // 다중 데이터 처리 때 사용
 // update와 delete 할 때, 번호을 물어보는 함수(updateProd, deleteProd, searchProd함수에서 사용)
 int selectDataNo(Product *s, int count) {
     #ifdef DEBUG
-        print_debug();
+	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
     #endif
     int no;
     listProd(s, count);
@@ -77,9 +77,3 @@ void searchStar(Product *s, int count) {
     }
     if(scount == 0) printf("==> 검색결과 없음!!!\n");
 }
-
-// DEBUG 모드 시 정보 입력
-void print_debug() {
-    printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
-}
-
