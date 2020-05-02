@@ -1,7 +1,7 @@
 [OSS LAB-13 팀별과제] CRUD Mini project 설계하기  
 
 - mini project 주제  
-아직 미정
+팀별로 설계한 Mini project에서 검색 기능을 제외한 모든 함수를 팀원끼리 적절히 분배하여 구현 및 테스트하고, 수정과 추가, 삭제 작업이 있을 때마다 git을 이용한 버전을 관리한다.
 
 - mini project 가 가지고 있는 대략적인 기능 설명  
 1. CRUD 기능  
