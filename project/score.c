@@ -56,7 +56,7 @@ int main() {
                 printf("=> 취소됨!\n");
                 continue;
             }
-            updateProd(&slist[no-1]);
+            updateScore(&slist[no-1]);
         }
         // delete
         else if(menu == 4) {
