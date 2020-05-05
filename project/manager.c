@@ -2,18 +2,17 @@
 #include "manager.h"
 #include <stdio.h>
 #include <string.h>
-#include "file.h"
-
 
 // 한 학생의 점수를 읽어오는 함수(listProd 함수에 포함될 예정)
 
 void readScore(Student s) {
-    printf("%10s %8d %6d %7d    ", s.name, s.mid, s.lab, s.project, s.final);
+    printf("%10s %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals);
     printf("\n");
 }
 
 //학생의  점수를  추가하는 함수
 int addScore(Student *s) {
+    printStd();
     printf("학생이름은? ");
     scanf("%s", s->name);
     printf("중간고사 점수는? ");
@@ -22,13 +21,14 @@ int addScore(Student *s) {
     scanf("%d", &s->lab);
     printf("팀 프로젝트 점수는? ");
     scanf("%d", &s->project);
-    printf("기말고사 점수는?");
-    scanf("%d", &s->final);
+    printf("기말고사 점수는? ");
+    scanf("%d", &s->finals);
     return 1;
 }
 
 // 원하는 학생 점수 정보를 수정하는 함수
 int updateScore(Student *s) {
+    printStd();
     printf("학생이름은? ");
     scanf("%s", s->name);
     printf("중간고사 점수는? ");
@@ -37,8 +37,8 @@ int updateScore(Student *s) {
     scanf("%d", &s->lab);
     printf("팀 프로젝트 점수는? ");
     scanf("%d", &s->project);
-    printf("기말고사 점수는?");
-    scanf("%d", &s->final);
+    printf("기말고사 점수는? ");
+    scanf("%d", &s->finals);
     printf("=> 수정됨!\n");
     return 1;
 }
@@ -55,8 +55,9 @@ int deleteScore(Student *s) {
 
 // 제품 리스트를 읽어오는 함수
 void listScore(Student *s, int count) {
-    printf("\nNo       Name   mid    lab     project     final  \n");
-    printf("=================================================\n");
+    printStd();
+    printf("\nNo| Name |  mid  |  lab  |project| final |  \n");
+    printf("===========================================\n");
     for(int i =0; i<count; i++) {
         if(s[i].mid == -1) continue;
         printf("%2d ", i+1);
@@ -82,4 +83,8 @@ int selectDataNo(Student *s, int count) {
     }
 
     return no;
+}
+
+void printStd() {
+	printf("standard : 중간(40/40), lab(20/20), project(10/10), final(30/30)\n");
 }

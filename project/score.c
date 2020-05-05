@@ -1,6 +1,6 @@
 // project main 함수
-#include "file.h"
 #include "manager.h"
+#include "file.h"
 #include <stdio.h>
 #include <string.h>
 

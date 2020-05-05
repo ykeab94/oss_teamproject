@@ -1,8 +1,8 @@
 // file 관련 함수
 #include "manager.h"
+#include "file.h"
 #include <stdio.h>
 #include <string.h>
-#include "file.h"
 
 // 제품 리스트를 텍스트 파일로 저장하는 함수
 void saveData(Student *s, int count) {
@@ -30,8 +30,8 @@ int loadData(Student *s) {
         if(feof(fp)) break;
     }
     fclose(fp);
-    printf("==> 로딩성공!!!\n")
-;
+    printf("==> 로딩성공!!!\n");
+    return count;
 }
 
 
