@@ -1,3 +1,16 @@
+typedef struct {
+    // 학생이름
+    char name[20];
+    // 중간고사
+    int mid;
+    // lab 과제
+    int lab;
+    // 팀 프로젝트
+    int project;
+    // 기말고사
+    int final;
+} Student;
+
 // CRUD 함수 선언 + list menu 함수 구성
 // 한 제품의 정보를 읽어오는 함수(listProd 함수에 포함될 예정)
 void readScore(Student s);

@@ -2,6 +2,7 @@
 #include "manager.h"
 #include <stdio.h>
 #include <string.h>
+#include "file.h"
 
 // 제품 리스트를 텍스트 파일로 저장하는 함수
 void saveData(Student *s, int count) {
