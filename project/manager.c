@@ -1,4 +1,3 @@
-//// 21500706 지성민
 #include "product.h"
 #include <stdio.h>
 #include "manager.h"

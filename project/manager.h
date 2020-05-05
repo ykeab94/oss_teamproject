@@ -1,4 +1,4 @@
-// 21500706 지성민
+// team project
 // update와 delete 할 때, 번호을 물어보는 함수(updateProd, deleteProd, searchProd함수에서 사용)
 int selectDataNo(Product *s, int count);
 // 이름으로 제품을 검색할 수 있는 함수

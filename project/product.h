@@ -1,4 +1,3 @@
-// 21500706 지성민
 typedef struct {
     // 제품명
     char item[20];
