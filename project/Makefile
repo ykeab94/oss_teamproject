@@ -2,7 +2,7 @@ CC= gcc
 CFLAGS = -W -Wall
 TARGET = scoreMain
 DTARGET = scoreMain_debug
-OBJECT = score.c file.o manager.o
+OBJECTS = score.c file.o manager.o
 
 $(TARGET) :$(OBJECTS)
 		$(CC) $(CFLAGS) -o $@ $^
