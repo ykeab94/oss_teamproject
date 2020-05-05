@@ -3,19 +3,56 @@
 #include <stdio.h>
 #include <string.h>
 #include "file.h"
-/*
-// 한 제품의 정보를 읽어오는 함수(listProd 함수에 포함될 예정)
+
+
+// 한 학생의 점수를 읽어오는 함수(listProd 함수에 포함될 예정)
+
 void readScore(Student s) {
+    printf("%10s %8d %6d %7d    ", s.name, s.mid, s.lab, s.project, s.final);
+    printf("\n");
 }
 
-// 원하는 제품 정보를 수정하는 함수
-int updateScore(Student *s) {
+//학생의  점수를  추가하는 함수
+int addScore(Student *s) {
+    printf("학생이름은? ");
+    scanf("%s", s->name);
+    printf("중간고사 점수는? ");
+    scanf("%d", &s->mid);
+    printf("lab과제 점수는? ");
+    scanf("%d", &s->lab);
+    printf("팀 프로젝트 점수는? ");
+    scanf("%d", &s->project);
+    printf("기말고사 점수는?");
+    scanf("%d", &s->final);
+    return 1;
 }
+
+// 원하는 학생 점수 정보를 수정하는 함수
+int updateScore(Student *s) {
+    printf("학생이름은? ");
+    scanf("%s", s->name);
+    printf("중간고사 점수는? ");
+    scanf("%d", &s->mid);
+    printf("lab과제 점수는? ");
+    scanf("%d", &s->lab);
+    printf("팀 프로젝트 점수는? ");
+    scanf("%d", &s->project);
+    printf("기말고사 점수는?");
+    scanf("%d", &s->final);
+    printf("=> 수정됨!\n");
+    return 1;
+}
+
+
 
 // 원하는 제품을 삭제하는 함수
 int deleteScore(Student *s) {
+    s->mid = -1;
+    printf("=> 삭제됨!\n");
+    return 1;
 }
-*/
+
+
 // 제품 리스트를 읽어오는 함수
 void listScore(Student *s, int count) {
     printf("\nNo       Name   mid    lab     project     final  \n");
@@ -28,3 +65,21 @@ void listScore(Student *s, int count) {
     printf("\n");
 }
 
+// 다중 데이터 처리 때 사용
+// update와 delete 할 때, 번호을 물어보는 함수(updateProd, deleteProd, searchProd함수에서 사용)
+int selectDataNo(Student *s, int count) {
+    #ifdef DEBUG
+	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
+    #endif
+    int no;
+    listScore(s, count);
+    printf("번호는 (취소 :0)? ");
+    scanf("%d", &no);
+
+    if(s[no-1].mid == -1) {
+        printf("이미 삭제된 데이터입니다.\n");
+        return -1;
+    }
+
+    return no;
+}
