@@ -12,7 +12,7 @@ int addProd(Product *p) {
     scanf("%d", &p->price);
     printf("표준가격은? ");
     scanf("%d", &p->st_price);
-    printf("별점수는? ");
+    printf("별점수는? (1~5) ");
     scanf("%d", &p->star);
     return 1;
 }
