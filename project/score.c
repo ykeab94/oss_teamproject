@@ -7,7 +7,7 @@
 int selectMenu() {
     int menu;
     while(1) {
-    	printf("\n*** DB  중간 고사 성적 관리 ***\n");
+    	printf("\n*** OSS  중간 고사 성적 관리 ***\n");
     	printf("1. 성적 조회\n");
     	printf("2. 성적 기록\n");
     	printf("3. 기록 수정\n");
