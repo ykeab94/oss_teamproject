@@ -10,7 +10,7 @@ void saveData(Student *s, int count) {
     fp = fopen("oss_score.txt", "wt");
     for(int i =0; i< count; i++) {
         if(s[i].mid == -1) continue;
-        fprintf(fp, "%s %d %d %d %d\n", s[i].name, s[i].mid, s[i].lab, s[i].project, s[i].final);
+        fprintf(fp, "%s %d %d %d %d\n", s[i].name, s[i].mid, s[i].lab, s[i].project, s[i].finals);
     }
     fclose(fp);
     printf("==> 저장됨! \n");
@@ -26,7 +26,7 @@ int loadData(Student *s) {
     int count = 0;
     // index를 위한 count 변수를 생성.
     for(;;count++){
-        fscanf(fp, "%s %d %d %d %d", s[count].name, &s[count].mid, &s[count].lab, &s[count].project, &s[count].final);
+        fscanf(fp, "%s %d %d %d %d", s[count].name, &s[count].mid, &s[count].lab, &s[count].project, &s[count].finals);
         if(feof(fp)) break;
     }
     fclose(fp);

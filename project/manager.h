@@ -1,4 +1,4 @@
-typedef struct {
+typedef struct{
     // 학생이름
     char name[20];
     // 중간고사
@@ -8,7 +8,7 @@ typedef struct {
     // 팀 프로젝트
     int project;
     // 기말고사
-    int final;
+    int finals;
 } Student;
 
 // CRUD 함수 선언 + list menu 함수 구성
