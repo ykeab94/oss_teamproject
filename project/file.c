@@ -34,4 +34,23 @@ int loadData(Student *s) {
     return count;
 }
 
-
+void saveResult(Student *s, int count) {
+	FILE * fp;
+	float total = 0;
+	int sum = 0;
+	float avg = 0;
+	fp = fopen("oss_result.txt", "wt");
+	fprintf(fp, "2020-01 오픈소스 소프트웨어 학생 성적\n");
+	fprintf(fp, "No | Name |  mid  |  lab  |project| final |  sum  |  \n");
+	for(int i = 0; i<count; i++) {
+		if(s[i].mid == -1) continue;
+		sum = s[i].mid+s[i].lab+s[i].project+s[i].finals;
+		fprintf(fp, "%2d %10s %7d %7d %7d %7d %7d\n", i+1, s[i].name, s[i].mid, s[i].lab, s[i].project, s[i].finals, sum);
+		total+= (float)sum;
+		sum = 0;
+	}
+	avg = total / count;
+	fprintf(fp, "이 분반의 성적 평균은 [%.2f]점입니다.\n", avg);
+	fclose(fp);
+	printf("==> 저장됨! \n");
+}

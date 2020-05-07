@@ -14,6 +14,7 @@ int selectMenu() {
     	printf("4. 기록 삭제\n");
     	printf("5. 파일 저장\n");
 	printf("6. 성적 출력\n");
+	printf("7. 성적 결과 저장\n");
     	printf("0. 종료\n");
     	printf("\n=> 원하는 메뉴는? ");
     	scanf("%d", &menu);
@@ -85,6 +86,13 @@ int main() {
 	else if(menu == 6) {
 	    if(count > 0) listScore(slist, curcount, 1);
 	    else printf("데이터가 없습니다.\n");
+	}
+	else if(menu == 7) {
+	    if(count == 0)
+		printf("==> 데이터 없음!\n");
+	    else {
+		saveResult(slist, curcount);
+	    }
 	}
 }
     printf("종료됨!\n");
