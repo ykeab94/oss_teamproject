@@ -5,9 +5,16 @@
 
 // 한 학생의 점수를 읽어오는 함수(listProd 함수에 포함될 예정)
 
-void readScore(Student s) {
-    printf("%10s %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals);
+int readScore(Student s, int isResult) {
+    int sum = 0;
+    if(isResult == 0) 
+	printf("%10s %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals);
+    else if(isResult == 1) {
+	sum = s.mid+s.lab+s.project+s.finals;
+	printf("%10s %7d %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals, sum);
+    }
     printf("\n");
+    return sum;
 }
 
 //학생의  점수를  추가하는 함수
@@ -54,14 +61,20 @@ int deleteScore(Student *s) {
 
 
 // 제품 리스트를 읽어오는 함수
-void listScore(Student *s, int count) {
+void listScore(Student *s, int count, int isResult) {
     printStd();
-    printf("\nNo| Name |  mid  |  lab  |project| final |  \n");
+    float total = 0;
+    if(isResult == 0) printf("\nNo| Name |  mid  |  lab  |project| final |  \n");
+    else if(isResult == 1) printf("\nNo| Name |  mid  |  lab  |project| final |  sum  | \n");
     printf("===========================================\n");
     for(int i =0; i<count; i++) {
-        if(s[i].mid == -1) continue;
-        printf("%2d ", i+1);
-        readScore(s[i]);
+	if(s[i].mid == -1) continue;
+	printf("%2d ", i+1);
+       	total += readScore(s[i], isResult);
+    }
+    if(isResult == 1) {
+	float avg = total / count;
+	printf("이 분반의 평균 점수는 [%.2f]점입니다.\n", avg);
     }
     printf("\n");
 }
@@ -73,7 +86,7 @@ int selectDataNo(Student *s, int count) {
 	printf("Debug: %s %s %s %d\n", __DATE__, __TIME__, __FILE__, __LINE__);
     #endif
     int no;
-    listScore(s, count);
+    listScore(s, count, 0);
     printf("번호는 (취소 :0)? ");
     scanf("%d", &no);
 
@@ -86,5 +99,5 @@ int selectDataNo(Student *s, int count) {
 }
 
 void printStd() {
-	printf("standard : 중간(40/40), lab(20/20), project(10/10), final(30/30)\n");
+	printf("standard(100/100) : 중간(40/40), lab(20/20), project(10/10), final(30/30)\n");
 }

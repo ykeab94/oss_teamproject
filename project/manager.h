@@ -13,7 +13,7 @@ typedef struct {
 
 // CRUD 함수 선언 + list menu 함수 구성
 // 한 제품의 정보를 읽어오는 함수(listScore 함수에 포함될 예정)
-void readScore(Student s);
+int readScore(Student s, int isResult);
 
 // 학생의 정보를 추가하는 함수
 int addScore(Student *s);
@@ -25,7 +25,7 @@ int updateScore(Student *s);
 int deleteScore(Student *s);
 
 // 학생별 OSS 점수 리스트를 읽어오는 함수
-void listScore(Student *s, int count);
+void listScore(Student *s, int count, int isResult);
 
 // update와 delete 할 때, 번호을 물어보는 함수(updateScore, deleteScore, searchScore함수에서 사용)
 int selectDataNo(Student *s, int count);
