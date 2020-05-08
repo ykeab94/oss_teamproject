@@ -38,14 +38,16 @@ void saveResult(Student *s, int count) {
 	FILE * fp;
 	float total = 0;
 	int sum = 0;
+	char grade = '?';
 	float avg = 0;
 	fp = fopen("oss_result.txt", "wt");
 	fprintf(fp, "2020-01 오픈소스 소프트웨어 학생 성적\n");
-	fprintf(fp, "No | Name |  mid  |  lab  |project| final |  sum  |  \n");
+	fprintf(fp, "No | Name |  mid  |  lab  |project| final |  sum  |  grade  | \n");
 	for(int i = 0; i<count; i++) {
 		if(s[i].mid == -1) continue;
 		sum = s[i].mid+s[i].lab+s[i].project+s[i].finals;
-		fprintf(fp, "%2d %10s %7d %7d %7d %7d %7d\n", i+1, s[i].name, s[i].mid, s[i].lab, s[i].project, s[i].finals, sum);
+		grade = gradeScore(sum, grade);
+		fprintf(fp, "%2d %10s %7d %7d %7d %7d %7d %7c\n", i+1, s[i].name, s[i].mid, s[i].lab, s[i].project, s[i].finals, sum, grade);
 		total+= (float)sum;
 		sum = 0;
 	}

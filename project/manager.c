@@ -19,7 +19,7 @@ int readScore(Student s, int isResult) {
     return sum;
 }
 
-//학 생성적의 등급을 매기는 함수
+//학생성적의 등급을 매기는 함수
 char gradeScore(int sum,char grade){
      if (90 <= sum && sum <= 100) grade='A';
      else if (80 <= sum && sum < 90) grade='B';
