@@ -77,7 +77,7 @@ void listScore(Student *s, int count, int isResult) {
     printStd();
     float total = 0;
     if(isResult == 0) printf("\nNo| Name |  mid  |  lab  |project| final |  \n");
-    else if(isResult == 1) printf("\nNo| Name |  mid  |  lab  |project| final |  sum  | \n");
+    else if(isResult == 1) printf("\nNo| Name |  mid  |  lab  |project| final |  sum  | grade |\n");
     printf("===========================================\n");
     for(int i =0; i<count; i++) {
 	if(s[i].mid == -1) continue;
