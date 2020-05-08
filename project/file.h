@@ -4,3 +4,5 @@ void saveData(Student *s, int count);
 int loadData(Student *s);
 // 최종 결과를 파일로 저장해주는 함수
 void saveResult(Student *s, int count);
+
+void evaluate();
