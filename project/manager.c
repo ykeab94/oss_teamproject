@@ -7,15 +7,27 @@
 
 int readScore(Student s, int isResult) {
     int sum = 0;
+    char grade='?';
     if(isResult == 0) 
 	printf("%10s %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals);
     else if(isResult == 1) {
 	sum = s.mid+s.lab+s.project+s.finals;
-	printf("%10s %7d %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals, sum);
+	grade = gradeScore(sum,grade);
+	printf("%10s %7d %7d %7d %7d %7d %7c", s.name, s.mid, s.lab, s.project, s.finals, sum, grade);
     }
     printf("\n");
     return sum;
 }
+
+//학 생성적의 등급을 매기는 함수
+char gradeScore(int sum,char grade){
+     if (90 <= sum && sum <= 100) grade='A';
+     else if (80 <= sum && sum < 90) grade='B';
+     else if (70 <= sum && sum < 80) grade='C';
+     else if (60 <= sum && sum < 70) grade='D';
+     else if (sum < 60) grade='F';
+     return grade;
+}  
 
 //학생의  점수를  추가하는 함수
 int addScore(Student *s) {
