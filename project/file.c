@@ -57,6 +57,3 @@ void saveResult(Student *s, int count) {
 	printf("==> 저장됨! \n");
 }
 
-void evaluate() {
-
-}
