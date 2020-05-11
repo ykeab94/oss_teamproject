@@ -14,3 +14,5 @@
 팀원 :  
 지성민(Repo 소유자) : 파일 관리 함수 및 main 함수 설계  
 배기완(Repo Contributer) : CRUD 및 추가 함수 설계  
+
+* 현재, 서로 교환하면서 git 작업중인데 fork에 문제가 있음.
