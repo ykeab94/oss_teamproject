@@ -43,7 +43,7 @@ int addScore(Student *s) {
     printf("기말고사 점수는? ");
     scanf("%d", &s->finals);
     return 1;
-}
+	}
 
 // 원하는 학생 점수 정보를 수정하는 함수
 int updateScore(Student *s) {
