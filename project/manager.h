@@ -35,8 +35,17 @@ void printStd();
 
 //학생성적의 등급을 매기는 함수
 char gradeScore(int sum,char grade);
-
+// 이름으로 학생을 찾는 함수
 void searchName(Student *s, int count);
-
+// 성적으로 학생을 찾는 함수
 void searchGrade(Student *s, int count);
+
+// list를 원하는 항목에 맞게 정렬해주는 함수
+void sortList(Student *s, int count);
+
+// 이름별로  정렬하는 함수
+void sortName(Student *s, int count, int num);
+
+// 중간, lab, project, 기말 성적 별로 정렬하는 함수
+void sortNum(Student *s, int count, int num);
 

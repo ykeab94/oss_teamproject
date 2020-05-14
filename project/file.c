@@ -13,14 +13,14 @@ void saveData(Student *s, int count) {
         fprintf(fp, "%s %d %d %d %d\n", s[i].name, s[i].mid, s[i].lab, s[i].project, s[i].finals);
     }
     fclose(fp);
-    printf("==> 저장됨! \n");
+    printf("==> 저장되었습니다! \n");
 }
 
 int loadData(Student *s) {
     FILE *fp;
     fp = fopen("oss_score.txt", "rt");
     if(fp == NULL) {
-        printf("==> 파일이 없음\n");
+        printf("==> 파일이 없습니다!\n");
         return 0;
     }
     int count = 0;
@@ -54,6 +54,6 @@ void saveResult(Student *s, int count) {
 	avg = total / count;
 	fprintf(fp, "이 분반의 성적 평균은 [%.2f]점입니다.\n", avg);
 	fclose(fp);
-	printf("==> 저장됨! \n");
+	printf("==> 저장되었습니다! \n");
 }
 

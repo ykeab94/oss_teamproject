@@ -139,3 +139,91 @@ void searchGrade(Student *s, int count) {
 	}
 	if(scount == 0) printf("=> 검색결과 없음!\n");
 }
+
+void sortList(Student *s, int count) {
+	int num;
+	listScore(s, count, 1);
+	printf("==========================================\n");
+	printf("어떤 항목으로 정렬하시겠습니까?\n");
+	printf("(이름(1), 중간(2), lab(3), project(4), final(5), sum(6) : ");
+	scanf("%d", &num);
+	
+	if(num == 1) {
+		sortName(s, count, num);	
+	}
+	else if(1<num && num < 7) {
+		sortNum(s, count, num);
+	}
+	printf("===========================================\n");
+	printf("=> 정렬되었습니다!\n");
+	listScore(s, count, 1);
+	
+}
+// 버블 정렬을 이용한 내림차순 문자 정렬
+void sortName(Student *s, int count, int num) {
+	Student temp;
+	printf(" => 이름별 정렬\n");
+	for(int step = 0; step<count; step++) {
+		for(int i =0; i< count-step; i++) {
+			if(num == 1) {
+				if(strcmp(s[i].name, s[i+1].name) < 0) {
+					temp = s[i];
+					s[i] = s[i+1];
+					s[i+1] = temp;
+				}
+			}
+		}
+	}	
+}
+
+void sortNum(Student *s, int count, int num) {
+	Student temp;
+	int sum1, sum2;
+	if(num == 2) printf(" => 중간 성적별 정렬\n");
+	else if(num==3) printf(" => lab 성적별 정렬\n");
+	else if(num ==4) printf("=> project 성정별 정렬\n");
+	else if(num ==5) printf("=> 기말 성적별 정렬\n");
+	else if(num ==6) printf("=> 최종 성적별 정렬\n");
+	for(int step = 0; step<count; step++) {
+		for(int i =0; i<count-step; i++) {
+			if(num == 2) {
+				if(s[i].mid<s[i+1].mid) {
+					temp = s[i];
+					s[i] = s[i+1];
+					s[i+1] = temp;
+				}
+			}
+			else if(num == 3) {
+                                if(s[i].lab<s[i+1].lab) {
+                                        temp = s[i];
+                                        s[i] = s[i+1];
+                                        s[i+1] = temp;
+                        	}
+			}
+			else if(num ==4) {
+                                if(s[i].project<s[i+1].project) {
+                                        temp = s[i];
+                                        s[i] = s[i+1];
+                                        s[i+1] = temp;
+                        	}
+			}
+			else if(num ==5 ) {
+                                if(s[i].finals<s[i+1].finals) {
+                                        temp = s[i];
+                                        s[i] = s[i+1];
+                                        s[i+1] = temp;
+                        	}
+			}
+                        else if(num ==6 ) {
+				sum1 = s[i].mid+s[i].lab+s[i].project+s[i].finals;
+				sum2 = s[i+1].mid+s[i+1].lab+s[i+1].project+s[i+1].finals;
+                                if(sum1<sum2) {
+                                        temp = s[i];
+                                        s[i] = s[i+1];
+                                        s[i+1] = temp;
+                                }
+                        }
+	
+		}
+	}
+}	
