@@ -3,27 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 
-//학생 이름을 검색하여 그 학생의 점수를 읽는 함수
-void searchName(Student *s, int count){
-  int scount = 0;
-  char search[20];
-  printf("원하는 이름은? ");
-  scanf("%s", search);
-
-  printf("\n| Name | mid | lab |project| final | \n");
-  printf("=================================\n");  
-  for(int i = 0; i < count; i++){
-    if(s[i].mid == -1) continue;
-    if(strstr(s[i].name, search)){
-      readScore(s[i], 0);
-      scount++;
-  }
-}
-if(scount == 0) printf("==> 검색결과 없음!!\n");
-}
-
-// 한 학생의 점수를 읽어오는 함수(listProd 함수에 포함될 예정)
-
+// 한 학생의 점수를 읽어오는 함수
 int readScore(Student s, int isResult) {
     int sum = 0;
     char grade;
@@ -133,29 +113,43 @@ int selectDataNo(Student *s, int count) {
 void printStd() {
 	printf("standard(100/100) : 중간(40/40), lab(20/20), project(10/10), final(30/30)\n");
 }
-/*
-void searchName(Student *s, int count) {
 
+//학생 이름을 검색하여 그 학생의 점수를 읽는 함수
+void searchName(Student *s, int count){
+  int scount = 0;
+  char search[20];
+  printf("원하는 이름은? ");
+  scanf("%s", search);
+
+  printf("\n| Name |  mid  |  lab  |project| final | \n");
+  printf("=================================\n");
+  for(int i = 0; i < count; i++){
+    if(s[i].mid == -1) continue;
+    if(strstr(s[i].name, search)){
+      readScore(s[i], 0);
+      scount++;
+  }
 }
-*/
+}
+
+
 void searchGrade(Student *s, int count) {
 	int scount = 0;
 	char sgrade;
 	int sum;
 	char grade;
+	getchar();
 	printf("원하는 성적 별 학생은?(A~F) : ");
-	scanf("%c", &sgrade);
-	
+	scanf("%c", &sgrade);	
 	printf("\nNo| Name | grade |\n");
 	printf("=====================\n");
 	for(int i=0; i< count; i++) {
 	     if(s[i].mid == -1) continue;
 	     sum = s[i].mid+s[i].lab+s[i].project+s[i].finals;
 	     grade = gradeScore(sum);
+	     if(sgrade != grade) continue;
 	     printf("%2d %10s %5c\n", i+1, s[i].name, grade);
-	//	printf("debug check!\n");
 	     scount++;
-//	printf("scount : %d\n",scount);
 	}
 	if(scount == 0) printf("=> 검색결과 없음!\n");
 }
@@ -169,28 +163,27 @@ void sortList(Student *s, int count) {
 	scanf("%d", &num);
 	
 	if(num == 1) {
-		sortName(s, count, num);	
+		sortName(s, count);	
 	}
 	else if(1<num && num < 7) {
 		sortNum(s, count, num);
 	}
+	else return ;
 	printf("===========================================\n");
 	printf("=> 정렬되었습니다!\n");
 	listScore(s, count, 1);
 	
 }
 // 버블 정렬을 이용한 내림차순 문자 정렬
-void sortName(Student *s, int count, int num) {
+void sortName(Student *s, int count) {
 	Student temp;
 	printf(" => 이름별 정렬\n");
-	for(int step = 0; step<count; step++) {
-		for(int i =0; i< count-step; i++) {
-			if(num == 1) {
-				if(strcmp(s[i].name, s[i+1].name) > 0) { // < 에서 >으로 수정 
-					temp = s[i];
-					s[i] = s[i+1];
-					s[i+1] = temp;
-				}
+	for(int step = 0; step<count-1; step++) {
+		for(int i =0; i< count-step-1; i++) {
+			if(strcmp(s[i].name, s[i+1].name) > 0) { // < 에서 >으로 수정 	
+				temp = s[i];
+				s[i] = s[i+1];
+				s[i+1] = temp;
 			}
 		}
 	}	
@@ -204,8 +197,8 @@ void sortNum(Student *s, int count, int num) {
 	else if(num ==4) printf("=> project 성정별 정렬\n");
 	else if(num ==5) printf("=> 기말 성적별 정렬\n");
 	else if(num ==6) printf("=> 최종 성적별 정렬\n");
-	for(int step = 0; step<count; step++) {
-		for(int i =0; i<count-step; i++) {
+	for(int step = 0; step<count-1; step++) {
+		for(int i =0; i<count-step-1; i++) {
 			if(num == 2) {
 				if(s[i].mid<s[i+1].mid) {
 					temp = s[i];

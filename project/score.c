@@ -13,7 +13,7 @@ int selectMenu() {
     	printf("3. 기록 수정\n");
     	printf("4. 기록 삭제\n");
     	printf("5. 파일 저장\n");
-	printf("6. 성적 출력\n");
+	printf("6. 전체 성적 조회\n");
 	printf("7. 성적 결과 저장\n");
 	printf("8. 이름 검색\n");
 	printf("9. 성적 검색\n");
