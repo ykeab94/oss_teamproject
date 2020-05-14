@@ -15,10 +15,13 @@ int selectMenu() {
     	printf("5. 파일 저장\n");
 	printf("6. 성적 출력\n");
 	printf("7. 성적 결과 저장\n");
+	printf("8. 이름 검색\n");
+	printf("9. 성적 검색\n");
+	printf("10. \n");
     	printf("0. 종료\n");
     	printf("\n=> 원하는 메뉴는? ");
     	scanf("%d", &menu);
-	if(0<=menu && menu<9) return menu;
+	if(0<=menu && menu<11) return menu;
 	else printf("Error: incorrect menu number.\n");
     }
 }
@@ -93,6 +96,22 @@ int main() {
 	    else {
 		saveResult(slist, curcount);
 	    }
+	}
+	// 이름 검색하는 부분
+	else if(menu == 8) {
+	     if(count == 0) 
+		printf("=> 데이터 없음!\n");
+	     else {
+		//searchName(slist, curcount);
+	     }
+	}
+	// 성적 검색하는 부분
+	else if(menu == 9) {
+	     if(count == 0)
+		printf("=> 데이터 없음!\n");
+	     else {
+		searchGrade(slist, curcount);
+	     }	
 	}
 }
     printf("종료됨!\n");
