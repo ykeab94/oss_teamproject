@@ -186,7 +186,7 @@ void sortName(Student *s, int count, int num) {
 	for(int step = 0; step<count; step++) {
 		for(int i =0; i< count-step; i++) {
 			if(num == 1) {
-				if(strcmp(s[i].name, s[i+1].name) < 0) {
+				if(strcmp(s[i].name, s[i+1].name) > 0) { // < 에서 >으로 수정 
 					temp = s[i];
 					s[i] = s[i+1];
 					s[i+1] = temp;

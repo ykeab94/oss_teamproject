@@ -33,9 +33,8 @@ int selectDataNo(Student *s, int count);
 void printStd();
 
 //학생성적의 등급을 매기는 함수
-char gradeScore(int sum,char grade);
+char gradeScore();
 // 이름으로 학생을 찾는 함수
->>>>>>> 79e42e92ec7a36f462e7da56a86a99a9a1236488
 void searchName(Student *s, int count);
 // 성적으로 학생을 찾는 함수
 void searchGrade(Student *s, int count);
