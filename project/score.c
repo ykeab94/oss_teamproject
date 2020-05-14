@@ -102,7 +102,7 @@ int main() {
 	     if(count == 0) 
 		printf("=> 데이터 없음!\n");
 	     else {
-		//searchName(slist, curcount);
+		searchName(slist, curcount);
 	     }
 	}
 	// 성적 검색하는 부분

@@ -11,7 +11,6 @@ typedef struct {
     int finals;
 }Student;
 
-
 // CRUD 함수 선언 + list menu 함수 구성
 // 한 제품의 정보를 읽어오는 함수(listScore 함수에 포함될 예정)
 int readScore(Student s, int isResult);
@@ -34,7 +33,7 @@ int selectDataNo(Student *s, int count);
 void printStd();
 
 //학생성적의 등급을 매기는 함수
-char gradeScore(int sum,char grade);
+char gradeScore();
 
 void searchName(Student *s, int count);
 

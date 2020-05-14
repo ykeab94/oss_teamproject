@@ -3,16 +3,35 @@
 #include <stdio.h>
 #include <string.h>
 
+//학생 이름을 검색하여 그 학생의 점수를 읽는 함수
+void searchName(Student *s, int count){
+  int scount = 0;
+  char search[20];
+  printf("원하는 이름은? ");
+  scanf("%s", search);
+
+  printf("\n| Name | mid | lab |project| final | \n");
+  printf("=================================\n");  
+  for(int i = 0; i < count; i++){
+    if(s[i].mid == -1) continue;
+    if(strstr(s[i].name, search)){
+      readScore(s[i], 0);
+      scount++;
+  }
+}
+if(scount == 0) printf("==> 검색결과 없음!!\n");
+}
+
 // 한 학생의 점수를 읽어오는 함수(listProd 함수에 포함될 예정)
 
 int readScore(Student s, int isResult) {
     int sum = 0;
-    char grade='?';
+    char grade;
     if(isResult == 0) 
 	printf("%10s %7d %7d %7d %7d", s.name, s.mid, s.lab, s.project, s.finals);
     else if(isResult == 1) {
 	sum = s.mid+s.lab+s.project+s.finals;
-	grade = gradeScore(sum,grade);
+	grade = gradeScore(sum);
 	printf("%10s %7d %7d %7d %7d %7d %7c", s.name, s.mid, s.lab, s.project, s.finals, sum, grade);
     }
     printf("\n");
@@ -20,7 +39,8 @@ int readScore(Student s, int isResult) {
 }
 
 //학생성적의 등급을 매기는 함수
-char gradeScore(int sum,char grade){
+char gradeScore(int sum){
+     char grade;
      if (90 <= sum && sum <= 100) grade='A';
      else if (80 <= sum && sum < 90) grade='B';
      else if (70 <= sum && sum < 80) grade='C';
@@ -131,7 +151,7 @@ void searchGrade(Student *s, int count) {
 	for(int i=0; i< count; i++) {
 	     if(s[i].mid == -1) continue;
 	     sum = s[i].mid+s[i].lab+s[i].project+s[i].finals;
-	     grade = gradeScore(sum,grade);
+	     grade = gradeScore(sum);
 	     printf("%2d %10s %5c\n", i+1, s[i].name, grade);
 	//	printf("debug check!\n");
 	     scount++;
