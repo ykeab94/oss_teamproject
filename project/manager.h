@@ -43,7 +43,7 @@ void searchGrade(Student *s, int count);
 void sortList(Student *s, int count);
 
 // 이름별로  정렬하는 함수
-void sortName(Student *s, int count, int num);
+void sortName(Student *s, int count);
 
 // 중간, lab, project, 기말 성적 별로 정렬하는 함수
 void sortNum(Student *s, int count, int num);
