@@ -4,9 +4,9 @@
 
 
 - mini project 가 가지고 있는 대략적인 기능 설명  
-1. CRUD 기능  
-2. 데이터 save, load 기능  
-3. search 기능  
+1. CRUD 기능
+2. 데이터 save, load 기능
+3. search 기능
 4. grading 기능
 5. 이름 별, 성적 별 검색기능
 6. 정렬 기능(원하는 기준에 따라)
