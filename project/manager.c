@@ -113,3 +113,29 @@ int selectDataNo(Student *s, int count) {
 void printStd() {
 	printf("standard(100/100) : 중간(40/40), lab(20/20), project(10/10), final(30/30)\n");
 }
+/*
+void searchName(Student *s, int count) {
+
+}
+*/
+void searchGrade(Student *s, int count) {
+	int scount = 0;
+	char sgrade;
+	int sum;
+	char grade;
+	printf("원하는 성적 별 학생은?(A~F) : ");
+	scanf("%c", &sgrade);
+	
+	printf("\nNo| Name | grade |\n");
+	printf("=====================\n");
+	for(int i=0; i< count; i++) {
+	     if(s[i].mid == -1) continue;
+	     sum = s[i].mid+s[i].lab+s[i].project+s[i].finals;
+	     grade = gradeScore(sum,grade);
+	     printf("%2d %10s %5c\n", i+1, s[i].name, grade);
+	//	printf("debug check!\n");
+	     scount++;
+//	printf("scount : %d\n",scount);
+	}
+	if(scount == 0) printf("=> 검색결과 없음!\n");
+}
