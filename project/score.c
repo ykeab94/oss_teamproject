@@ -58,7 +58,7 @@ int main() {
         else if(menu == 3) {
             int no = selectDataNo(slist, curcount);
             if(no == 0 || no == -1) {
-                printf("=> 취소됨!\n");
+                printf("=> 취소되었습니다!\n");
                 continue;
             }
             updateScore(&slist[no-1]);
@@ -67,7 +67,7 @@ int main() {
         else if(menu == 4) {
             int no = selectDataNo(slist, curcount);
             if(no == 0 || no == -1) {
-                printf("=> 취소됨!\n");
+                printf("=> 취소되었습니다!\n");
                 continue;
             }
             int deleteok;
@@ -81,18 +81,18 @@ int main() {
         // Data save
         else if(menu == 5) {
             if(count == 0)
-                printf("=> 데이터 없음!\n");
+                printf("=> 데이터가 없습니다!\n");
             else {
                 saveData(slist, curcount);
             }
     	}
 	else if(menu == 6) {
 	    if(count > 0) listScore(slist, curcount, 1);
-	    else printf("데이터가 없습니다.\n");
+	    else printf("데이터가 없습니다!\n");
 	}
 	else if(menu == 7) {
 	    if(count == 0)
-		printf("==> 데이터 없음!\n");
+		printf("==> 데이터가 없습니다!\n");
 	    else {
 		saveResult(slist, curcount);
 	    }
@@ -100,7 +100,7 @@ int main() {
 	// 이름 검색하는 부분
 	else if(menu == 8) {
 	     if(count == 0) 
-		printf("=> 데이터 없음!\n");
+		printf("=> 데이터가 없습니다!\n");
 	     else {
 		searchName(slist, curcount);
 	     }
@@ -108,12 +108,17 @@ int main() {
 	// 성적 검색하는 부분
 	else if(menu == 9) {
 	     if(count == 0)
-		printf("=> 데이터 없음!\n");
-	     else {
+		printf("=> 데이터가 없습니다!\n");
+	     else
 		searchGrade(slist, curcount);
-	     }	
+	}
+	else if(menu == 10) {
+	     if(count == 0)
+		printf("=> 데이터가 없습니다!\n");
+	     else
+		sortList(slist, curcount);
 	}
 }
-    printf("종료됨!\n");
+    printf("종료되었습니다!\n");
     return 0;
 }
