@@ -168,6 +168,7 @@ void sortList(Student *s, int count) {
 	else if(1<num && num < 7) {
 		sortNum(s, count, num);
 	}
+	else return ;
 	printf("===========================================\n");
 	printf("=> 정렬되었습니다!\n");
 	listScore(s, count, 1);
@@ -177,9 +178,9 @@ void sortList(Student *s, int count) {
 void sortName(Student *s, int count) {
 	Student temp;
 	printf(" => 이름별 정렬\n");
-	for(int step = 0; step<count; step++) {
-		for(int i =0; i< count-step; i++) {
-			if(strcmp(s[i].name, s[i+1].name) > 0) { // < 에서 >으로 수정 			
+	for(int step = 0; step<count-1; step++) {
+		for(int i =0; i< count-step-1; i++) {
+			if(strcmp(s[i].name, s[i+1].name) > 0) { // < 에서 >으로 수정 	
 				temp = s[i];
 				s[i] = s[i+1];
 				s[i+1] = temp;
@@ -196,8 +197,8 @@ void sortNum(Student *s, int count, int num) {
 	else if(num ==4) printf("=> project 성정별 정렬\n");
 	else if(num ==5) printf("=> 기말 성적별 정렬\n");
 	else if(num ==6) printf("=> 최종 성적별 정렬\n");
-	for(int step = 0; step<count; step++) {
-		for(int i =0; i<count-step; i++) {
+	for(int step = 0; step<count-1; step++) {
+		for(int i =0; i<count-step-1; i++) {
 			if(num == 2) {
 				if(s[i].mid<s[i+1].mid) {
 					temp = s[i];
